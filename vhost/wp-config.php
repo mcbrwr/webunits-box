@@ -15,12 +15,10 @@
  */
 
 
-define('WP_DEBUG', false);
-define('DB_CHARSET', 'latin1');
-define('DB_COLLATE', '');
-define('DB_HOST', '127.0.0.1');
-
-if ( strpos($_SERVER['DOCUMENT_ROOT'], 'httpdocs') ) { 
+if ( strpos($_SERVER['DOCUMENT_ROOT'], 'vagrant') ) { 
+  define('DB_HOST', 'localhost');
+  define('DB_CHARSET', 'latin1');
+  define('DB_COLLATE', '');
   define('DB_NAME', 'vagrant');
   define('DB_USER', 'vagrant');
   define('DB_PASSWORD', 'vagrant');
@@ -28,22 +26,21 @@ if ( strpos($_SERVER['DOCUMENT_ROOT'], 'httpdocs') ) {
   ini_set('display_errors', 'On');
   error_reporting(E_ALL);
 } else {
-  define('DB_NAME', 'fysical');
-  define('DB_USER', 'fys');
-  define('DB_PASSWORD', 'qwepoiqwerty');
+  require('dbconfig_live.php');
   ini_set('display_errors', 'Off');
   define('WP_DEBUG', false);
 }
 
-function currentURL() {
-  isset($_SERVER['HTTPS']) ? $pageURL = 'https://' : $pageURL = 'http://';
-  $pageURL .= $_SERVER['SERVER_PORT'] != '80' ? $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"] : $_SERVER['SERVER_NAME'];
-  return $pageURL;
+function wu_hostname() {
+  global $wu_hostname;
+  isset($_SERVER['HTTPS']) ? $wu_hostname = 'https://' : $wu_hostname = 'http://';
+  $wu_hostname .= $_SERVER['SERVER_PORT'] != '80' ? $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"] : $_SERVER['SERVER_NAME'];
+  return;
 }
 
-
-define('WP_HOME', currentURL());
-define('WP_SITEURL', currentURL());
+wu_hostname();
+define('WP_HOME', $wu_hostname;
+define('WP_SITEURL', $wu_hostname;
 
 
 /**#@+
