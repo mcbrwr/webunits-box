@@ -39,8 +39,8 @@ function wu_hostname() {
 }
 
 wu_hostname();
-define('WP_HOME', $wu_hostname;
-define('WP_SITEURL', $wu_hostname;
+define('WP_HOME', $wu_hostname);
+define('WP_SITEURL', $wu_hostname);
 
 
 /**#@+
@@ -80,7 +80,7 @@ $table_prefix  = 'wp_';
  * de_DE.mo to wp-content/languages and set WPLANG to 'de_DE' to enable German
  * language support.
  */
-define('WPLANG', '');
+define('WPLANG', 'nl_NL');
 
 /**
  * For developers: WordPress debugging mode.
