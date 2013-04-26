@@ -1,5 +1,6 @@
 !/vhost/wp-content/plugins
 /vhost/wp-content
+.vagrant
 
 # Packages #
 ############
