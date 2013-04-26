@@ -1,13 +1,17 @@
-# What's this?
-This is a set of configs and scripts to get a development environment for webapps online asap. 
-It uses Vagrant to run a virtual machine in Virtual Box and Puppet provisioning to configure the box so that it runs... -wait for it- ...  out of the box!
-It's all developped and tested on a Mac.
+webunits-box
+============
 
-# Dependencies
-- Vagrant
-- Vagrant depends on Oracle's Virtual Box
+A vagrant / puppet / LAMP box filled with Wordpress, Webunits &amp; Bootstrap, ready to start coding.
+Built for mac, but hey: it's vagrant.. it should work on Linux/Windows to!
 
-# Package list
+##Requirements
+- Oracle's Virtualbox: https://www.virtualbox.org
+- Vagrantup's Vagrant: http://www.vagrantup.com
+
+##Final Features
+A virtual machine powered by Virtualbox, and controlled by Vagrant and provisioned by Puppet. Containing: A linux webserver with Wordpress ready to go, fitted with some bootstrap theming and a tasty, handpicked & handgrown selection  of plugins needed to get an average site running.
+
+###Webserver, LAMP features:
 - apache2
 - php5
 - php5-cli
@@ -19,34 +23,17 @@ It's all developped and tested on a Mac.
 - vim
 - git-core
 
+###Wordpress features
+- Wordpress
+- custom wp-config.php for vagrant/live setup
+- the webunits-theme featuring:
+-- timthumb.php
+-- Bootstrap
+-- maybe: Less compilation built in
+- some handgrown webunits-plugins like:
+-- webunits-simple-events
+-- webunits-links
 
-# Settings/Configs
-## Global
-- added LC_ALL=en.US-UTF8 to root & vragant .bash_profile to suppress mac terminal errors
-
-## Apache
-- mod rewrite enabled
-- webroot: /vagrant/httpdocs
-- apache2 runs as vagrant:vagrant (so access to shared folder is as expected)
-
-## MySQL
-- root password set
-- default user: vagrant/vagrant
-
-
-# Usage
-## Install
-1. Make sure you've got Vagrant & Virtual Box installed
-2. git clone git://github.com/mcbrwr/my-vagrant-puppet-lamp.git mybox
-3. Testing install: point your browser to http://localhost:8000
-
-## Running your own website
-1. make a subdir in mybox/sites/ (mkdir mybox/sites/mysite)
-2. copy your site to the dir you created
-3. point the httpdocs link to your site (rm mybox/httpdocs && ln -s mybox/sites/mysite mybox/httpdocs)
-4. do your database stuff if needed..
-5. check your site at http://localhost:8000
-
-## doing stuff on the box's console
-If you need access to the shell of the box do this: vagrant ssh. You're then logged in to the box as user vagrant.
+##Todo
+- everything (actually a lot has been done already, just gotta pile it up and get it ready for release)
 
