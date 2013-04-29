@@ -25,7 +25,7 @@ if ( strpos($_SERVER['DOCUMENT_ROOT'], 'vagrant') ) {
   define('WP_DEBUG', true);
   ini_set('display_errors', 'On');
   error_reporting(E_ALL);
-} else {
+} else if( file_exists('dbconfig_live.php') ) {
   require('dbconfig_live.php');
   ini_set('display_errors', 'Off');
   define('WP_DEBUG', false);

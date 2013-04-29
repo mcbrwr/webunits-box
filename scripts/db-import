@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sqlfile='/vagrant/httpdocs/sql/dump.sql'
+sqlfile='/vagrant/sql/init.sql'
 dbname='vagrant'
 dbuser='vagrant'
 dbpass='vagrant'
