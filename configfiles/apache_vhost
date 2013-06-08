@@ -1,5 +1,15 @@
+Listen: 8000
 <VirtualHost *:80>
-
+  ServerName localhost
+  DocumentRoot /vagrant/vhost
+  <Directory /vagrant/vhost>
+    DirectoryIndex index.php index.html
+    AllowOverride All
+    Order allow,deny
+    Allow from all
+  </Directory>
+</VirtualHost>
+<VirtualHost *:8000>
   ServerName localhost
   DocumentRoot /vagrant/vhost
   <Directory /vagrant/vhost>
